@@ -1,54 +1,83 @@
 import './App.css'
 import { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
 import MyNavbar from './components/PortfolioNavbar';
 import HomePage from './components/home/HomePage';
-import BrandName from './components/brandname/BrandName';
-import ResumePage from './components/resume/ResumePage'; /* Imported ResumePage */
+import ResumePage from './components/resume/ResumePage';
 import PhotosPage from './components/photos/PhotosPage';
-import { FaMoon, FaSun, FaLinkedin } from 'react-icons/fa'; /* Added FaLinkedin */
+import { FaMoon, FaSun } from 'react-icons/fa';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     document.body.className = darkMode ? 'bg-dark text-white' : '';
   }, [darkMode]);
 
+  // Scroll to section based on URL hash on load
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash) {
+      setActiveSection(hash);
+      setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, []);
+
+  // Update URL and active section based on scroll position
+  useEffect(() => {
+    const scrollContainer = document.querySelector('.scroll-container');
+    if (!scrollContainer) return;
+
+    const handleScroll = () => {
+      const sections = ['home', 'resume', 'photos'];
+      const scrollPosition = scrollContainer.scrollTop + 200;
+
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            if (window.location.hash !== `#${sectionId}`) {
+              window.history.replaceState(null, '', `#${sectionId}`);
+              setActiveSection(sectionId);
+            }
+            break;
+          }
+        }
+      }
+    };
+
+    scrollContainer.addEventListener('scroll', handleScroll);
+    return () => scrollContainer.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
       <div className="header-row">
-        {/* Group brand name and dark mode toggle together */}
-        <div className="brand-toggle-group">
-          <button onClick={() => setDarkMode(!darkMode)} className="dark-mode-toggle">
-            {darkMode ? <FaSun /> : <FaMoon />}
-          </button>
-          <img
-            src="https://media.licdn.com/dms/image/v2/C4E03AQF5Rm5ONbgHFQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1602294599941?e=1765411200&v=beta&t=2V4q9GXpzSh5iTLYDpr0cyvOa-b8HbJe7lPeq6xvn1s"
-            alt="Kevin Lee"
-            className="profile-photo"
-            onError={(e) => {
-              e.currentTarget.style.display = 'none'; /* Hides image if it fails to load */
-            }}
-          />
-          <BrandName />
-          <a
-            href="https://www.linkedin.com/in/kevin-lee-x/"
-            target="_blank" /* Opens link in new tab */
-            rel="noopener noreferrer" /* Security best practice for external links */
-            className="social-link"
-          >
-            <FaLinkedin />
-          </a>
-        </div>
-        <MyNavbar darkMode={darkMode} />
+        <button onClick={() => setDarkMode(!darkMode)} className="dark-mode-toggle">
+          {darkMode ? <FaSun /> : <FaMoon />}
+        </button>
+        <MyNavbar darkMode={darkMode} activeSection={activeSection} />
       </div>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/resume" element={<ResumePage darkMode={darkMode} />} /> {/* Add this route */}
-        <Route path="/photos" element={<PhotosPage darkMode={darkMode}/>} />
-        {/* other routes */}
-      </Routes>
+      
+      <div className="scroll-container">
+        <section id="home" className="scroll-section">
+          <HomePage darkMode={darkMode} />
+        </section>
+        
+        <section id="resume" className="scroll-section">
+          <ResumePage darkMode={darkMode} />
+        </section>
+        
+        <section id="photos" className="scroll-section">
+          <PhotosPage darkMode={darkMode} />
+        </section>
+      </div>
     </>
   );
 }

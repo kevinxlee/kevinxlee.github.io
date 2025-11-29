@@ -1,11 +1,11 @@
-import { BrowserRouter } from 'react-router-dom';
-import { createRoot } from 'react-dom/client'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App'
 import './index.css'
-import App from './App.tsx'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-createRoot(document.getElementById('root')!).render(
-  <BrowserRouter basename="/my-page"> {/* Add basename prop */}
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
     <App />
-  </BrowserRouter>,
+  </React.StrictMode>,
 )

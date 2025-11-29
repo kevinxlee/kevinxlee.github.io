@@ -1,20 +1,79 @@
 .home-container {
-    display: flex; /* Enables flexbox layout */
-    flex-direction: column; /* Stacks children vertically */
-    align-items: flex-start; /* Aligns children to the left (start of cross-axis) */
-    justify-content: flex-start; /* Aligns children to the top (start of main-axis) */
-    padding: 2rem 25%; /* Adds vertical padding and horizontal padding to match your header */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Changed from flex-start to center */
+    justify-content: flex-start;
+    padding: 1rem 25%;
+}
+
+.brand-and-social {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers everything horizontally */
+    width: 100%;
+    gap: 1rem; /* Adds space between brand-name-group and social link */
+}
+
+.brand-name-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the photo and brand name */
+    gap: 1rem; /* Space between photo and brand name */
+    font-size: 2.5rem; /* Makes the brand name big */
+    font-weight: bold; /* Makes it bold */
+    text-align: center; /* Centers the text */
+}
+
+.profile-photo {
+    width: 150px; /* Adjust size as needed */
+    height: 150px;
+    border-radius: 50%; /* Makes it circular */
+    object-fit: cover; /* Ensures the image covers the area properly */
+}
+
+.linkedin-link {
+    font-size: 3rem; /* Makes the LinkedIn icon bigger */
+    color: #333; /* LinkedIn blue color */
+    transition: color 0.3s ease;
+}
+
+.linkedin-link.dark {
+    font-size: 3rem; /* Makes the LinkedIn icon bigger */
+    color: #BBB; /* Lighter color for dark mode */
+    transition: color 0.3s ease;
+}
+
+.linkedin-link:hover {
+    color: #005582; /* Darker blue on hover */
+}
+
+.email-link {
+    font-size: 3rem;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease; /* Add smooth color transition */
+}
+.email-link.dark {
+    font-size: 3rem;
+    color: #BBB;
+    text-decoration: none;
+    transition: color 0.3s ease; /* Add smooth color transition */
+}
+
+.email-link:hover {
+    color: #EA4335; /* Gmail red color on hover */
+    text-decoration: none; /* Remove underline */
 }
 
 .home-header {
-    font-family: sans-serif; /* Uses a clean, modern sans-serif font */
-    font-size: 1.5rem; /* Slightly larger for a header */
-    margin-bottom: 0.5rem; /* Adds space below the header */
+    font-family: sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .home-paragraph {
-    font-family: sans-serif; /* Matches the header font */
-    font-size: 1rem; /* Base font size */
-    line-height: 1.6; /* Increases line height for better readability */
-    max-width: 800px; /* Limits the width for easier reading */
+    font-family: sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 800px;
 }
