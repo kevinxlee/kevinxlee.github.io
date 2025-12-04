@@ -37,14 +37,14 @@ html, body {
 .scroll-container {
   height: 100vh;
   overflow-y: scroll;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
   scroll-behavior: smooth;
 }
 
 .scroll-section {
   min-height: 100vh;
   scroll-snap-align: start;
-  scroll-snap-stop: always;
+  /* scroll-snap-stop: always; */
   padding-top: 80px;
 }
 

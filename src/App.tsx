@@ -71,7 +71,7 @@ function App() {
         </section>
 
         <section id="about" className="scroll-section">
-          <AboutPage/>
+          <AboutPage darkMode={darkMode}/>
         </section>
         
         <section id="resume" className="scroll-section">
