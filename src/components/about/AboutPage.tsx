@@ -13,48 +13,39 @@ function AboutPage() {
         </p>
 
         <div className="skills-section">
-            <div className="skill-card"><h2>Skills</h2>
+            <div className="skill-card"><h1>Code</h1>
             <ul>
+                <li>Java</li>
                 <li>JavaScript / TypeScript</li>
-                <li>React / Redux</li>
-                <li>Node.js / Express</li>
-                <li>Python / Django</li>
+                <li>Kotlin</li>
+                <li>Python</li>
                 <li>HTML5 / CSS3</li>
-                <li>SQL / NoSQL Databases</li>
-                <li>Git / GitHub</li>
+                <li>Terraform</li>
             </ul>
             </div>
-        <div className="skill-card"><h2>Skills</h2>
+        <div className="skill-card"><h2>Frameworks</h2>
             <ul>
-                <li>JavaScript / TypeScript</li>
+                <li>Spring Boot</li>
                 <li>React / Redux</li>
-                <li>Node.js / Express</li>
-                <li>Python / Django</li>
-                <li>HTML5 / CSS3</li>
-                <li>SQL / NoSQL Databases</li>
-                <li>Git / GitHub</li>
             </ul>
             </div>
-            <div className="skill-card"><h2>Skills</h2>
+            <div className="skill-card"><h2>Data & Processing</h2>
             <ul>
-                <li>JavaScript / TypeScript</li>
-                <li>React / Redux</li>
-                <li>Node.js / Express</li>
-                <li>Python / Django</li>
-                <li>HTML5 / CSS3</li>
-                <li>SQL / NoSQL Databases</li>
-                <li>Git / GitHub</li>
+                <li>PostgreSQL</li>
+                <li>OracleDB</li>
+                <li>Flink</li>
+                <li>Kafka</li>
             </ul>
             </div>
-            <div className="skill-card"><h2>Skills</h2>
+            <div className="skill-card"><h2>Tools</h2>
             <ul>
-                <li>JavaScript / TypeScript</li>
-                <li>React / Redux</li>
-                <li>Node.js / Express</li>
-                <li>Python / Django</li>
-                <li>HTML5 / CSS3</li>
-                <li>SQL / NoSQL Databases</li>
+                <li>Docker</li>
+                <li>AWS</li>
+                <li>Kubernetes</li>
                 <li>Git / GitHub</li>
+                <li>Datadog</li>
+                <li>Jenkins</li>
+                <li>Spinnaker</li>
             </ul>
             </div>
         </div>

@@ -15,59 +15,6 @@
     }
 }
 
-.resume-controls {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.resume-control-button {
-    background-color: #0a66c2;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 0.5rem 1rem;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 40px;
-    text-decoration: none;
-}
-
-.resume-control-button:hover:not(:disabled) {
-    background-color: #005582;
-    transform: scale(1.05);
-}
-
-.resume-control-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.resume-control-button.zoom-level {
-    font-size: 0.9rem;
-    min-width: 60px;
-    font-weight: 600;
-}
-
-.resume-control-button.pan-toggle {
-    position: relative;
-}
-
-.resume-control-button.pan-toggle.active {
-    background-color: #28a745;
-}
-
-.resume-control-button.pan-toggle.active:hover {
-    background-color: #218838;
-}
-
 .mode-indicator {
     display: flex;
     align-items: center;
