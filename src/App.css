@@ -31,7 +31,8 @@ html, body {
 /* Mobile: Reduce padding on small screens */
 
 .bg-dark .header-row {
-  background-color: #212529;
+  background-color: #2d2d2d;
+  border-bottom: 1px solid #444;
 }
 
 .scroll-container {
